@@ -5,20 +5,19 @@ provider: Pinata
 providerId: pinata
 created: '2026-05-08'
 modified: '2026-05-08'
-reconciled: false
+reconciled: true
 tags:
 - Web3
 - IPFS
 - Storage
-- NFT
-- CDN
+- Gateway
 - FinOps
-- Cost Management
 - FOCUS
-description: FOCUS-aligned FinOps placeholder for Pinata. Pipeline will replace with real billing details.
-notes: Initial scaffold — billing model has not yet been reconciled.
+description: Pinata bills as monthly subscription with included storage and gateway
+  bandwidth, plus per-GB overage.
+notes: Usage in Pinata dashboard.
 sources:
-- https://pinata.cloud/
+- https://www.pinata.cloud/pricing
 - https://focus.finops.org/focus-specification/v1-3/
 alignedWith:
   framework: FinOps Foundation Framework
@@ -26,16 +25,15 @@ alignedWith:
   dataSpec: FOCUS
   dataSpecVersion: '1.3'
   dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
-publisherName: Pinata
+publisherName: Pinata Technologies, Inc.
 serviceCategory: Web3
 billingModel:
-  pricingCategory: To Be Reconciled
+  pricingCategory: Subscription + Storage
   billingFrequency: Monthly
   billingCurrency: USD
   chargeCategories:
   - Usage
   - Purchase
-  - Adjustment
 focusColumns:
   ServiceName: Pinata
   ServiceCategory: Web3
@@ -45,22 +43,34 @@ focusColumns:
   BillingCurrency: USD
   ChargeCategory: Usage
 meters:
-- name: api_usage
-  description: Catch-all meter pending reconciliation.
-  unit: varies
-  aggregation: sum
+- name: pinned_storage
+  description: Bytes pinned to IPFS / Submarine.
+  unit: byte
+  aggregation: max
   dimensions:
   - account
-  - resource
+  - group
+- name: gateway_requests
+  description: Dedicated gateway requests served.
+  unit: request
+  aggregation: sum
+  dimensions:
+  - gateway
+- name: gateway_bandwidth
+  description: Dedicated gateway bandwidth.
+  unit: byte
+  aggregation: sum
+  dimensions:
+  - gateway
 principles:
 - name: Visibility
-  description: Pull provider invoices or usage exports until a self-serve usage feed is documented.
+  description: Pinata dashboard tracks storage, gateway requests, and bandwidth.
 - name: Allocation
-  description: Tag invoice line items to consuming business units in your FinOps store.
+  description: Use Groups and API keys to attribute pins per app/team.
 - name: Optimization
-  description: Levers depend on the provider's billing model; review at renewal once reconciled.
+  description: Garbage-collect orphaned CIDs; serve through CDN; size files appropriately.
 - name: Accountability
-  description: Assign a contract owner to review billing against negotiated terms.
+  description: Account owner reviews monthly bandwidth and storage.
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com

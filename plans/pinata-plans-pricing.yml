@@ -5,37 +5,118 @@ provider: Pinata
 providerId: pinata
 created: '2026-05-08'
 modified: '2026-05-08'
-reconciled: false
+reconciled: true
 tags:
 - Web3
 - IPFS
 - Storage
-- NFT
-- CDN
+- Gateway
 - Plans
-description: Placeholder plans/pricing artifact for Pinata. Replace with real published pricing once
-  the pipeline researches the provider's plans page.
-notes: Initial scaffold — plans/pricing have not yet been reconciled against the provider's documentation.
+description: Pinata sells tiered subscriptions with included GB pinned storage, gateway
+  bandwidth, and request quotas. Overages bill per GB.
+notes: Verify against pinata.cloud/pricing.
 sources:
-- https://pinata.cloud/
+- https://www.pinata.cloud/pricing
 plans:
-- id: pinata-default
-  name: To Be Reconciled
-  type: enterprise
-  description: Initial scaffold; replace with provider plan tiers once pricing is reconciled.
+- id: pinata-free
+  name: Free
+  type: free
+  description: Free plan with 1 GB pin storage and limited gateway requests.
   entries:
-  - label: API Access
-    name: api_access
-    type: flat
-    metric: varies
-    limit: -1
-    timeFrame: usage
+  - label: Storage
+    name: storage
+    type: included
+    metric: bytes
+    limit: 1073741824
+    timeFrame: month
     geo: global
     unit: 1
-    price: see https://pinata.cloud/
+    price: 0
     userMultiplied: false
   elements:
-  - name: Pending Reconciliation
+  - name: Public IPFS
+  - name: Community Support
+- id: pinata-picnic
+  name: Picnic
+  type: paid
+  description: Entry-level paid plan.
+  entries:
+  - label: Monthly Subscription
+    name: monthly_subscription
+    type: flat
+    metric: subscription
+    limit: 1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: 20
+    userMultiplied: false
+  - label: Storage
+    name: storage
+    type: included
+    metric: bytes
+    limit: 53687091200
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: 0
+    userMultiplied: false
+  elements:
+  - name: Dedicated Gateway
+  - name: Submarine
+- id: pinata-fiesta
+  name: Fiesta
+  type: paid
+  description: Higher-tier production plan.
+  entries:
+  - label: Monthly Subscription
+    name: monthly_subscription
+    type: flat
+    metric: subscription
+    limit: 1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: 100
+    userMultiplied: false
+  elements:
+  - name: More Storage
+  - name: More Bandwidth
+- id: pinata-carnival
+  name: Carnival
+  type: paid
+  description: Higher-volume production plan.
+  entries:
+  - label: Monthly Subscription
+    name: monthly_subscription
+    type: flat
+    metric: subscription
+    limit: 1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: 500
+    userMultiplied: false
+  elements:
+  - name: Priority Support
+- id: pinata-enterprise
+  name: Enterprise
+  type: enterprise
+  description: Custom enterprise contracts with SLAs and dedicated infrastructure.
+  entries:
+  - label: Custom
+    name: custom
+    type: flat
+    metric: contract
+    limit: -1
+    timeFrame: year
+    geo: global
+    unit: 1
+    price: contact sales
+    userMultiplied: false
+  elements:
+  - name: SLAs
+  - name: Custom Infrastructure
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
