@@ -1,0 +1,243 @@
+openapi: 3.1.0
+info:
+  title: Pinata API
+  description: |
+    Pinata is an IPFS pinning and dedicated-gateway provider. The v3 API
+    exposes endpoints for testing authentication, uploading files, listing
+    and managing files (per network), and managing dedicated gateways. All
+    requests authenticate via a JWT Bearer token issued from the Pinata
+    dashboard.
+
+    Uploads are sent to a separate hostname (uploads.pinata.cloud) while
+    file metadata and gateway management live on api.pinata.cloud. Only a
+    representative subset of the Pinata v3 surface (auth test, upload, files,
+    gateways) is modeled here. See the API reference linked under
+    externalDocs for the full catalog including Groups, Keys, and the
+    IPFS Pinning Service API.
+  version: "3.0.0"
+  contact:
+    name: Pinata Documentation
+    url: https://docs.pinata.cloud/api-reference
+  license:
+    name: Pinata Proprietary
+externalDocs:
+  description: Pinata API reference
+  url: https://docs.pinata.cloud/api-reference
+servers:
+  - url: https://api.pinata.cloud
+    description: Pinata core API base URL.
+  - url: https://uploads.pinata.cloud
+    description: Pinata uploads base URL (multipart file upload).
+tags:
+  - name: Auth
+    description: Test API credentials.
+  - name: Files
+    description: Upload, list, and manage pinned files.
+  - name: Gateways
+    description: Manage dedicated IPFS gateways.
+security:
+  - bearerAuth: []
+paths:
+  /data/testAuthentication:
+    get:
+      tags: [Auth]
+      summary: Test API authentication
+      description: |
+        Validates the Bearer token supplied in the Authorization header by
+        returning a fixed success message when the credentials are valid.
+      operationId: testAuthentication
+      servers:
+        - url: https://api.pinata.cloud
+      responses:
+        "200":
+          description: Credentials are valid.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Congratulations! You are communicating with the Pinata API!
+        "401":
+          description: Invalid credentials.
+
+  /v3/files:
+    post:
+      tags: [Files]
+      summary: Upload a file
+      description: |
+        Uploads a file to Pinata, pinning it to either the public IPFS
+        network or to private storage depending on the `network` parameter.
+        This endpoint is served from uploads.pinata.cloud.
+      operationId: uploadFile
+      servers:
+        - url: https://uploads.pinata.cloud
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              required: [file, network]
+              properties:
+                file:
+                  type: string
+                  format: binary
+                network:
+                  type: string
+                  enum: [public, private]
+                name:
+                  type: string
+                  description: Optional name for the file.
+                group_id:
+                  type: string
+                  description: Optional group identifier to associate the file with.
+                keyvalues:
+                  type: string
+                  description: Optional JSON-encoded metadata.
+      responses:
+        "200":
+          description: File uploaded.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UploadResponse"
+        "401":
+          description: Missing or invalid Bearer token.
+
+  /v3/files/{network}:
+    parameters:
+      - in: path
+        name: network
+        required: true
+        schema:
+          type: string
+          enum: [public, private]
+    get:
+      tags: [Files]
+      summary: List files on a network
+      description: |
+        Returns a paginated list of files pinned on the specified Pinata
+        network ("public" or "private").
+      operationId: listFiles
+      servers:
+        - url: https://api.pinata.cloud
+      parameters:
+        - in: query
+          name: limit
+          schema:
+            type: integer
+            default: 10
+        - in: query
+          name: pageToken
+          schema:
+            type: string
+        - in: query
+          name: name
+          schema:
+            type: string
+        - in: query
+          name: cid
+          schema:
+            type: string
+        - in: query
+          name: group
+          schema:
+            type: string
+      responses:
+        "200":
+          description: A page of files.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/FileList"
+
+  /v3/files/{network}/{id}:
+    parameters:
+      - in: path
+        name: network
+        required: true
+        schema:
+          type: string
+          enum: [public, private]
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+    get:
+      tags: [Files]
+      summary: Get a file by ID
+      operationId: getFileById
+      servers:
+        - url: https://api.pinata.cloud
+      responses:
+        "200":
+          description: File metadata.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/File"
+        "404":
+          description: File not found.
+    delete:
+      tags: [Files]
+      summary: Delete a file by ID
+      operationId: deleteFileById
+      servers:
+        - url: https://api.pinata.cloud
+      responses:
+        "200":
+          description: File deleted.
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: Pinata JWT issued from the Pinata dashboard.
+  schemas:
+    File:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        cid:
+          type: string
+        size:
+          type: integer
+        mime_type:
+          type: string
+        number_of_files:
+          type: integer
+        group_id:
+          type: string
+          nullable: true
+        created_at:
+          type: string
+          format: date-time
+        keyvalues:
+          type: object
+          additionalProperties: true
+    FileList:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            files:
+              type: array
+              items:
+                $ref: "#/components/schemas/File"
+            next_page_token:
+              type: string
+              nullable: true
+    UploadResponse:
+      type: object
+      properties:
+        data:
+          $ref: "#/components/schemas/File"
