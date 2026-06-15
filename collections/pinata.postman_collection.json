@@ -1,0 +1,891 @@
+{
+  "item": [
+    {
+      "id": "0442327c-355d-4bfd-9401-02150b50740f",
+      "name": "Auth",
+      "description": {
+        "content": "Test API credentials.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e4bc0ac2-79d0-4f84-8246-f8d029929191",
+          "name": "Test API authentication",
+          "request": {
+            "name": "Test API authentication",
+            "description": {
+              "content": "Validates the Bearer token supplied in the Authorization header by\nreturning a fixed success message when the credentials are valid.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "protocol": "https",
+              "path": [
+                "data",
+                "testAuthentication"
+              ],
+              "host": [
+                "api",
+                "pinata",
+                "cloud"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "248d01e6-71a8-4ae8-b68d-51788267f214",
+              "name": "Credentials are valid.",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "data",
+                    "testAuthentication"
+                  ],
+                  "host": [
+                    "api",
+                    "pinata",
+                    "cloud"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Congratulations! You are communicating with the Pinata API!\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "da5af518-2b4c-4e1f-8dfd-62421091ca11",
+              "name": "Invalid credentials.",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "data",
+                    "testAuthentication"
+                  ],
+                  "host": [
+                    "api",
+                    "pinata",
+                    "cloud"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "0e61fcb6-fe6b-490c-9a5d-b525977d013c",
+      "name": "Files",
+      "description": {
+        "content": "Upload, list, and manage pinned files.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "48a959c8-1013-40de-87ef-ae2dfcfd58f7",
+          "name": "Upload a file",
+          "request": {
+            "name": "Upload a file",
+            "description": {
+              "content": "Uploads a file to Pinata, pinning it to either the public IPFS\nnetwork or to private storage depending on the `network` parameter.\nThis endpoint is served from uploads.pinata.cloud.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "protocol": "https",
+              "path": [
+                "v3",
+                "files"
+              ],
+              "host": [
+                "uploads",
+                "pinata",
+                "cloud"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "description": "(Required) "
+                },
+                {
+                  "key": "network",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": "(Required)  (This can only be one of public,private)"
+                },
+                {
+                  "key": "name",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": "Optional name for the file."
+                },
+                {
+                  "key": "group_id",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": "Optional group identifier to associate the file with."
+                },
+                {
+                  "key": "keyvalues",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": "Optional JSON-encoded metadata."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "3a5d104f-7d85-4ddf-a01c-3660aaaeb022",
+              "name": "File uploaded.",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "v3",
+                    "files"
+                  ],
+                  "host": [
+                    "uploads",
+                    "pinata",
+                    "cloud"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "<binary>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "(Required)  (This can only be one of public,private)",
+                        "type": "text/plain"
+                      },
+                      "key": "network",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Optional name for the file.",
+                        "type": "text/plain"
+                      },
+                      "key": "name",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Optional group identifier to associate the file with.",
+                        "type": "text/plain"
+                      },
+                      "key": "group_id",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Optional JSON-encoded metadata.",
+                        "type": "text/plain"
+                      },
+                      "key": "keyvalues",
+                      "value": "<string>",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"cid\": \"string\",\n    \"size\": 1051,\n    \"mime_type\": \"string\",\n    \"number_of_files\": 1889,\n    \"group_id\": \"string\",\n    \"created_at\": \"1993-01-24T22:33:49.725Z\",\n    \"keyvalues\": {\n      \"key_0\": 1528.2279910995833,\n      \"key_1\": 887.9171431213384,\n      \"key_2\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "84ea555a-0e30-4795-aef2-f2597be5d2fd",
+              "name": "Missing or invalid Bearer token.",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "v3",
+                    "files"
+                  ],
+                  "host": [
+                    "uploads",
+                    "pinata",
+                    "cloud"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "<binary>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "(Required)  (This can only be one of public,private)",
+                        "type": "text/plain"
+                      },
+                      "key": "network",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Optional name for the file.",
+                        "type": "text/plain"
+                      },
+                      "key": "name",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Optional group identifier to associate the file with.",
+                        "type": "text/plain"
+                      },
+                      "key": "group_id",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Optional JSON-encoded metadata.",
+                        "type": "text/plain"
+                      },
+                      "key": "keyvalues",
+                      "value": "<string>",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "28a56bbd-86d4-4cae-adb5-e7eeb17670e0",
+          "name": "List files on a network",
+          "request": {
+            "name": "List files on a network",
+            "description": {
+              "content": "Returns a paginated list of files pinned on the specified Pinata\nnetwork (\"public\" or \"private\").\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "protocol": "https",
+              "path": [
+                "v3",
+                "files",
+                ":network"
+              ],
+              "host": [
+                "api",
+                "pinata",
+                "cloud"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "10"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageToken",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "name",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "cid",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "group",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "network",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "45ea20ae-19ab-4e6b-9cb6-a21db84fb3d8",
+              "name": "A page of files.",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "v3",
+                    "files",
+                    ":network"
+                  ],
+                  "host": [
+                    "api",
+                    "pinata",
+                    "cloud"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    },
+                    {
+                      "key": "pageToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cid",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "group",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "network",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"files\": [\n      {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"cid\": \"string\",\n        \"size\": 1785,\n        \"mime_type\": \"string\",\n        \"number_of_files\": 9814,\n        \"group_id\": \"string\",\n        \"created_at\": \"1998-02-10T04:47:04.727Z\",\n        \"keyvalues\": {\n          \"key_0\": 6309,\n          \"key_1\": 9341,\n          \"key_2\": false\n        }\n      },\n      {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"cid\": \"string\",\n        \"size\": 6457,\n        \"mime_type\": \"string\",\n        \"number_of_files\": 9832,\n        \"group_id\": \"string\",\n        \"created_at\": \"1992-09-03T09:38:34.946Z\",\n        \"keyvalues\": {\n          \"key_0\": 2558.478244480715,\n          \"key_1\": \"string\",\n          \"key_2\": 8895\n        }\n      }\n    ],\n    \"next_page_token\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6c4eee58-49d6-4d41-9e0f-21a78711e856",
+          "name": "Get a file by ID",
+          "request": {
+            "name": "Get a file by ID",
+            "description": {},
+            "url": {
+              "protocol": "https",
+              "path": [
+                "v3",
+                "files",
+                ":network",
+                ":id"
+              ],
+              "host": [
+                "api",
+                "pinata",
+                "cloud"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "network",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "94ee56f4-80ab-4fe5-9d56-143712a06002",
+              "name": "File metadata.",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "v3",
+                    "files",
+                    ":network",
+                    ":id"
+                  ],
+                  "host": [
+                    "api",
+                    "pinata",
+                    "cloud"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "network",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"cid\": \"string\",\n  \"size\": 2122,\n  \"mime_type\": \"string\",\n  \"number_of_files\": 3363,\n  \"group_id\": \"string\",\n  \"created_at\": \"2013-12-28T02:53:55.763Z\",\n  \"keyvalues\": {\n    \"key_0\": 1825.5469547969806,\n    \"key_1\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "343352b5-8552-4efd-ba98-5ba7d908f9d7",
+              "name": "File not found.",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "v3",
+                    "files",
+                    ":network",
+                    ":id"
+                  ],
+                  "host": [
+                    "api",
+                    "pinata",
+                    "cloud"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "network",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d81c6d23-60a2-4370-8f1d-f9b1148e32dc",
+          "name": "Delete a file by ID",
+          "request": {
+            "name": "Delete a file by ID",
+            "description": {},
+            "url": {
+              "protocol": "https",
+              "path": [
+                "v3",
+                "files",
+                ":network",
+                ":id"
+              ],
+              "host": [
+                "api",
+                "pinata",
+                "cloud"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "network",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "35308f80-65ab-43d5-abe1-85dd618e9a06",
+              "name": "File deleted.",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "v3",
+                    "files",
+                    ":network",
+                    ":id"
+                  ],
+                  "host": [
+                    "api",
+                    "pinata",
+                    "cloud"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "network",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "639b7803-c40d-4643-8d46-709dd9ad4bae",
+      "name": "Gateways",
+      "description": {
+        "content": "Manage dedicated IPFS gateways.",
+        "type": "text/plain"
+      },
+      "item": [],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.pinata.cloud",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "72dbea3a-0c66-488d-9ade-6e22976d7f1f",
+    "name": "Pinata API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Pinata is an IPFS pinning and dedicated-gateway provider. The v3 API\nexposes endpoints for testing authentication, uploading files, listing\nand managing files (per network), and managing dedicated gateways. All\nrequests authenticate via a JWT Bearer token issued from the Pinata\ndashboard.\n\nUploads are sent to a separate hostname (uploads.pinata.cloud) while\nfile metadata and gateway management live on api.pinata.cloud. Only a\nrepresentative subset of the Pinata v3 surface (auth test, upload, files,\ngateways) is modeled here. See the API reference linked under\nexternalDocs for the full catalog including Groups, Keys, and the\nIPFS Pinning Service API.\n\n\nContact Support:\n Name: Pinata Documentation",
+      "type": "text/plain"
+    }
+  }
+}
