@@ -5,7 +5,7 @@ kind: company
 description: Pinata is an IPFS pinning and dedicated-gateway provider with a Files
   API, IPFS Pinning Service API, dedicated Gateways, Groups, and Workspaces. Built
   around IPFS CIDs with JWT-authenticated REST APIs and an SDK.
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
   - Web3
   - IPFS
