@@ -79,7 +79,7 @@ common:
     url: rate-limits/pinata-rate-limits.yml
   - type: FinOps
     url: finops/pinata-finops.yml
-  - type: LLMsTxt
+  - type: LlmsText
     url: https://docs.pinata.cloud/llms.txt
 maintainers:
   - FN: Kin Lane
