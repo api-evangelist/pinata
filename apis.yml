@@ -67,6 +67,10 @@ apis:
     - type: Documentation
       url: https://docs.pinata.cloud/api-reference/endpoint/v3-create-a-public-group
 common:
+  - type: DomainSecurity
+    url: security/pinata-domain-security.yml
+  - type: Authentication
+    url: authentication/pinata-authentication.yml
   - type: GitHubOrganization
     url: https://github.com/PinataCloud
   - type: LinkedIn
@@ -81,6 +85,8 @@ common:
     url: finops/pinata-finops.yml
   - type: LlmsText
     url: https://docs.pinata.cloud/llms.txt
+  - type: Blog
+    url: https://pinata.cloud/blog/rss/
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
