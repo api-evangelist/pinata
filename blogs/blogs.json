@@ -1,0 +1,21 @@
+{
+  "repo": "pinata",
+  "feeds": [
+    {
+      "source": "https://pinata.cloud/blog/rss/",
+      "feed_url": "https://pinata.cloud/blog/rss/",
+      "title": "",
+      "saved": 0,
+      "method": "feed"
+    },
+    {
+      "source": "https://docs.pinata.cloud/llms.txt",
+      "feed_url": "https://docs.pinata.cloud/llms.txt",
+      "title": "",
+      "saved": 0,
+      "method": "none"
+    }
+  ],
+  "fetched": "2026-07-11T11:50:51Z",
+  "post_count": 18
+}
