@@ -67,6 +67,8 @@ apis:
     - type: Documentation
       url: https://docs.pinata.cloud/api-reference/endpoint/v3-create-a-public-group
 common:
+  - type: AgenticAccess
+    url: agentic-access/pinata-agentic-access.yml
   - type: DomainSecurity
     url: security/pinata-domain-security.yml
   - type: Authentication
