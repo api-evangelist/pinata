@@ -1,0 +1,80 @@
+openapi: 3.1.0
+info:
+  title: Pinata Auth API
+  description: 'Pinata is an IPFS pinning and dedicated-gateway provider. The v3 API
+
+    exposes endpoints for testing authentication, uploading files, listing
+
+    and managing files (per network), and managing dedicated gateways. All
+
+    requests authenticate via a JWT Bearer token issued from the Pinata
+
+    dashboard.
+
+
+    Uploads are sent to a separate hostname (uploads.pinata.cloud) while
+
+    file metadata and gateway management live on api.pinata.cloud. Only a
+
+    representative subset of the Pinata v3 surface (auth test, upload, files,
+
+    gateways) is modeled here. See the API reference linked under
+
+    externalDocs for the full catalog including Groups, Keys, and the
+
+    IPFS Pinning Service API.
+
+    '
+  version: 3.0.0
+  contact:
+    name: Pinata Documentation
+    url: https://docs.pinata.cloud/api-reference
+  license:
+    name: Pinata Proprietary
+servers:
+- url: https://api.pinata.cloud
+  description: Pinata core API base URL.
+- url: https://uploads.pinata.cloud
+  description: Pinata uploads base URL (multipart file upload).
+security:
+- bearerAuth: []
+tags:
+- name: Auth
+  description: Test API credentials.
+paths:
+  /data/testAuthentication:
+    get:
+      tags:
+      - Auth
+      summary: Test API authentication
+      description: 'Validates the Bearer token supplied in the Authorization header by
+
+        returning a fixed success message when the credentials are valid.
+
+        '
+      operationId: testAuthentication
+      servers:
+      - url: https://api.pinata.cloud
+      responses:
+        '200':
+          description: Credentials are valid.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Congratulations! You are communicating with the Pinata API!
+        '401':
+          description: Invalid credentials.
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: Pinata JWT issued from the Pinata dashboard.
+externalDocs:
+  description: Pinata API reference
+  url: https://docs.pinata.cloud/api-reference
