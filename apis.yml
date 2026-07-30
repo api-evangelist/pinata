@@ -5,7 +5,20 @@ kind: company
 description: Pinata is an IPFS pinning and dedicated-gateway provider with a Files
   API, IPFS Pinning Service API, dedicated Gateways, Groups, and Workspaces. Built
   around IPFS CIDs with JWT-authenticated REST APIs and an SDK.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/pinata.png
 tags:
   - Web3
   - IPFS
@@ -15,57 +28,78 @@ created: '2026-05-08'
 modified: '2026-05-08'
 specificationVersion: '0.19'
 apis:
-  - aid: pinata:files-api
-    name: Pinata Files API
-    description: REST API for uploading, listing, organizing, and deleting files pinned
-      to IPFS or stored privately. Supports public and private (Submarine) modes, signed
-      URLs, and Groups.
-    humanURL: https://docs.pinata.cloud/api-reference/endpoint/upload-a-file
-    baseURL: https://api.pinata.cloud/v3
-    tags:
-    - REST
-    - IPFS
-    - Files
-    properties:
-    - type: Documentation
-      url: https://docs.pinata.cloud/api-reference
-  - aid: pinata:pinning-service-api
-    name: Pinata IPFS Pinning Service API
-    description: Implementation of the IPFS Pinning Service API standard for compatibility
-      with go-ipfs / kubo and js-ipfs clients.
-    humanURL: https://docs.pinata.cloud/api-reference/endpoint/ipfs-pinning-service-api
-    baseURL: https://api.pinata.cloud/psa
-    tags:
-    - REST
-    - IPFS
-    - Pinning Service
-    properties:
-    - type: Documentation
-      url: https://docs.pinata.cloud/api-reference/endpoint/ipfs-pinning-service-api
-  - aid: pinata:gateway-api
-    name: Pinata Dedicated Gateway
-    description: Dedicated IPFS HTTP gateway endpoint per account for content retrieval
-      with custom subdomain, access controls, and analytics.
-    humanURL: https://docs.pinata.cloud/gateways/dedicated-ipfs-gateways
-    baseURL: https://{your-gateway}.mypinata.cloud
-    tags:
-    - HTTP
-    - Gateway
-    properties:
-    - type: Documentation
-      url: https://docs.pinata.cloud/gateways/dedicated-ipfs-gateways
-  - aid: pinata:groups-api
-    name: Pinata Groups API
-    description: REST API for organizing CIDs into named Groups with bulk add/remove
-      operations.
-    humanURL: https://docs.pinata.cloud/api-reference/endpoint/v3-create-a-public-group
-    baseURL: https://api.pinata.cloud/v3
-    tags:
-    - REST
-    - Groups
-    properties:
-    - type: Documentation
-      url: https://docs.pinata.cloud/api-reference/endpoint/v3-create-a-public-group
+- aid: pinata:files-api
+  name: Pinata Files API
+  description: >-
+    REST API for uploading, listing, organizing, and deleting files pinned to IPFS or stored privately.
+    Supports public and private (Submarine) modes, signed URLs, and Groups.
+  humanURL: https://docs.pinata.cloud/api-reference/endpoint/upload-a-file
+  baseURL: https://api.pinata.cloud/v3
+  tags:
+  - REST
+  - IPFS
+  - Files
+  properties:
+  - type: Documentation
+    url: https://docs.pinata.cloud/api-reference
+- aid: pinata:pinning-service-api
+  name: Pinata IPFS Pinning Service API
+  description: >-
+    Implementation of the IPFS Pinning Service API standard for compatibility with go-ipfs / kubo and
+    js-ipfs clients.
+  humanURL: https://docs.pinata.cloud/api-reference/endpoint/ipfs-pinning-service-api
+  baseURL: https://api.pinata.cloud/psa
+  tags:
+  - REST
+  - IPFS
+  - Pinning Service
+  properties:
+  - type: Documentation
+    url: https://docs.pinata.cloud/api-reference/endpoint/ipfs-pinning-service-api
+- aid: pinata:gateway-api
+  name: Pinata Dedicated Gateway
+  description: >-
+    Dedicated IPFS HTTP gateway endpoint per account for content retrieval with custom subdomain, access
+    controls, and analytics.
+  humanURL: https://docs.pinata.cloud/gateways/dedicated-ipfs-gateways
+  baseURL: https://{your-gateway}.mypinata.cloud
+  tags:
+  - HTTP
+  - Gateway
+  properties:
+  - type: Documentation
+    url: https://docs.pinata.cloud/gateways/dedicated-ipfs-gateways
+- aid: pinata:groups-api
+  name: Pinata Groups API
+  description: REST API for organizing CIDs into named Groups with bulk add/remove operations.
+  humanURL: https://docs.pinata.cloud/api-reference/endpoint/v3-create-a-public-group
+  baseURL: https://api.pinata.cloud/v3
+  tags:
+  - REST
+  - Groups
+  properties:
+  - type: Documentation
+    url: https://docs.pinata.cloud/api-reference/endpoint/v3-create-a-public-group
+- aid: pinata:pinata-auth-api
+  name: Pinata Auth API
+  description: Test API credentials.
+  humanURL: https://docs.pinata.cloud/api-reference/endpoint/upload-a-file
+  baseURL: https://api.pinata.cloud/v3
+  tags:
+  - Auth
+  properties:
+  - type: OpenAPI
+    url: openapi/pinata-auth-api-openapi.yml
+- aid: pinata:pinata-files-api
+  name: Pinata Files API
+  description: Upload, list, and manage pinned files.
+  humanURL: https://docs.pinata.cloud/api-reference/endpoint/upload-a-file
+  baseURL: https://api.pinata.cloud/v3
+  tags:
+  - Files
+  properties:
+  - type: OpenAPI
+    url: openapi/pinata-files-api-openapi.yml
 common:
   - type: AgenticAccess
     url: agentic-access/pinata-agentic-access.yml
