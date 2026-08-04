@@ -1,0 +1,16 @@
+{
+  "provider": "pinata",
+  "sources": [
+    "pinata-auth-api-openapi.yml",
+    "pinata-files-api-openapi.yml"
+  ],
+  "outputs": [
+    "pinata-auth-api-openapi.yml",
+    "pinata-files-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
