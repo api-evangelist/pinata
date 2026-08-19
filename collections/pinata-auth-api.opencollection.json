@@ -1,0 +1,35 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Pinata Auth API",
+    "version": "3.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Auth",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Test API authentication",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.pinata.cloud/data/testAuthentication"
+          },
+          "docs": "Validates the Bearer token supplied in the Authorization header by\nreturning a fixed success message when the credentials are valid.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

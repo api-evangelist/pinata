@@ -1,0 +1,170 @@
+{
+  "item": [
+    {
+      "id": "87715d76-fb5a-46ed-9244-b512af93689c",
+      "name": "Auth",
+      "description": {
+        "content": "Test API credentials.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "618f7fc4-5ec6-443f-82a3-d5e729f949de",
+          "name": "Test API authentication",
+          "request": {
+            "name": "Test API authentication",
+            "description": {
+              "content": "Validates the Bearer token supplied in the Authorization header by\nreturning a fixed success message when the credentials are valid.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "protocol": "https",
+              "path": [
+                "data",
+                "testAuthentication"
+              ],
+              "host": [
+                "api",
+                "pinata",
+                "cloud"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5aaa3110-8606-44ef-8973-d6cd82740341",
+              "name": "Credentials are valid.",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "data",
+                    "testAuthentication"
+                  ],
+                  "host": [
+                    "api",
+                    "pinata",
+                    "cloud"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Congratulations! You are communicating with the Pinata API!\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ca3cbc72-0e40-40fd-896a-7c36769a235b",
+              "name": "Invalid credentials.",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "data",
+                    "testAuthentication"
+                  ],
+                  "host": [
+                    "api",
+                    "pinata",
+                    "cloud"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.pinata.cloud",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "cfe278fd-efe6-4ce9-bade-2d26258e698a",
+    "name": "Pinata Auth API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Pinata is an IPFS pinning and dedicated-gateway provider. The v3 API\nexposes endpoints for testing authentication, uploading files, listing\nand managing files (per network), and managing dedicated gateways. All\nrequests authenticate via a JWT Bearer token issued from the Pinata\ndashboard.\n\nUploads are sent to a separate hostname (uploads.pinata.cloud) while\nfile metadata and gateway management live on api.pinata.cloud. Only a\nrepresentative subset of the Pinata v3 surface (auth test, upload, files,\ngateways) is modeled here. See the API reference linked under\nexternalDocs for the full catalog including Groups, Keys, and the\nIPFS Pinning Service API.\n\n\nContact Support:\n Name: Pinata Documentation",
+      "type": "text/plain"
+    }
+  }
+}
