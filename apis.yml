@@ -38,6 +38,10 @@ apis:
   tags:
   - REST
   - IPFS
+  - File
+  tags_raw:
+  - REST
+  - IPFS
   - Files
   properties:
   - type: Documentation
@@ -76,6 +80,9 @@ apis:
   baseURL: https://api.pinata.cloud/v3
   tags:
   - REST
+  - Group
+  tags_raw:
+  - REST
   - Groups
   properties:
   - type: Documentation
@@ -86,6 +93,8 @@ apis:
   humanURL: https://docs.pinata.cloud/api-reference/endpoint/upload-a-file
   baseURL: https://api.pinata.cloud/v3
   tags:
+  - Authentication
+  tags_raw:
   - Auth
   properties:
   - type: OpenAPI
@@ -96,6 +105,8 @@ apis:
   humanURL: https://docs.pinata.cloud/api-reference/endpoint/upload-a-file
   baseURL: https://api.pinata.cloud/v3
   tags:
+  - File
+  tags_raw:
   - Files
   properties:
   - type: OpenAPI
