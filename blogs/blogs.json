@@ -2,23 +2,21 @@
   "repo": "pinata",
   "feeds": [
     {
-      "source": "https://pinata.cloud/blog/rss/",
-      "feed_url": "https://pinata.cloud/blog/rss/",
-      "title": "",
-      "saved": 0,
-      "method": "feed",
-      "nature": "vendor-blog",
-      "nature_basis": "path_blog"
-    },
-    {
       "source": "https://docs.pinata.cloud/llms.txt",
       "feed_url": "https://docs.pinata.cloud/llms.txt",
       "title": "",
       "saved": 0,
       "method": "none"
+    },
+    {
+      "source": "https://pinata.cloud/blog/rss/",
+      "feed_url": "https://pinata.cloud/blog/rss/",
+      "title": "",
+      "saved": 0,
+      "method": "feed"
     }
   ],
-  "fetched": "2026-08-30T22:33:40Z",
+  "fetched": "2026-09-06T19:17:18Z",
   "post_count": 18,
   "feed_nature": "vendor-blog",
   "feed_nature_basis": "path_blog",
