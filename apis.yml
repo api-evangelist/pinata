@@ -36,6 +36,11 @@ tags:
   - Web3
   - IPFS
   - Storage
+  - Gateways
+tags_raw:
+  - Web3
+  - IPFS
+  - Storage
   - Gateway
 created: '2026-05-08'
 modified: '2026-05-08'
@@ -81,6 +86,9 @@ apis:
   humanURL: https://docs.pinata.cloud/gateways/dedicated-ipfs-gateways
   baseURL: https://{your-gateway}.mypinata.cloud
   tags:
+  - HTTP
+  - Gateways
+  tags_raw:
   - HTTP
   - Gateway
   properties:
