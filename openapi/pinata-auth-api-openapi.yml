@@ -1,30 +1,7 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Pinata Auth API
-  description: 'Pinata is an IPFS pinning and dedicated-gateway provider. The v3 API
-
-    exposes endpoints for testing authentication, uploading files, listing
-
-    and managing files (per network), and managing dedicated gateways. All
-
-    requests authenticate via a JWT Bearer token issued from the Pinata
-
-    dashboard.
-
-
-    Uploads are sent to a separate hostname (uploads.pinata.cloud) while
-
-    file metadata and gateway management live on api.pinata.cloud. Only a
-
-    representative subset of the Pinata v3 surface (auth test, upload, files,
-
-    gateways) is modeled here. See the API reference linked under
-
-    externalDocs for the full catalog including Groups, Keys, and the
-
-    IPFS Pinning Service API.
-
-    '
+  description: Pinata is an IPFS pinning and dedicated-gateway provider.
   version: 3.0.0
   contact:
     name: Pinata Documentation
@@ -49,9 +26,7 @@ paths:
       summary: Test API authentication
       description: 'Validates the Bearer token supplied in the Authorization header by
 
-        returning a fixed success message when the credentials are valid.
-
-        '
+        returning a fixed success message when the credentials are valid.'
       operationId: testAuthentication
       servers:
       - url: https://api.pinata.cloud
