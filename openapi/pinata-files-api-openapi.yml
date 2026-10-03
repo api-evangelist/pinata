@@ -160,6 +160,24 @@ paths:
           description: File deleted.
 components:
   schemas:
+    UploadResponse:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/File'
+    FileList:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            files:
+              type: array
+              items:
+                $ref: '#/components/schemas/File'
+            next_page_token:
+              type: string
+              nullable: true
     File:
       type: object
       properties:
@@ -184,24 +202,6 @@ components:
         keyvalues:
           type: object
           additionalProperties: true
-    UploadResponse:
-      type: object
-      properties:
-        data:
-          $ref: '#/components/schemas/File'
-    FileList:
-      type: object
-      properties:
-        data:
-          type: object
-          properties:
-            files:
-              type: array
-              items:
-                $ref: '#/components/schemas/File'
-            next_page_token:
-              type: string
-              nullable: true
   securitySchemes:
     bearerAuth:
       type: http
