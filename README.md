@@ -1,4 +1,4 @@
-# Pinata (pinata)
+# Pinata
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,107 +66,129 @@
 
 Pinata is an IPFS pinning and dedicated-gateway provider with a Files API, IPFS Pinning Service API, dedicated Gateways, Groups, and Workspaces. Built around IPFS CIDs with JWT-authenticated REST APIs and an SDK.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/pinata/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/pinata/refs/heads/main/apis.yml)
+**Areas:** Web3 · IPFS · Storage · Gateways
 
-## Tags
+## Pinata on APIs.io
 
-- Web3
-- IPFS
-- Storage
-- Gateway
+Everything profiled for Pinata is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/pinata/](https://apis.io/providers/pinata/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### APIs (6)
 
-- **Created:** 2026-05-08
-- **Modified:** 2026-05-08
+- [Pinata Files API](https://apis.io/apis/pinata/files-api/) — REST API for uploading, listing, organizing, and deleting files pinned to IPFS or stored privately. Supports public and private (Submarine) modes, signed…
+- [Pinata IPFS Pinning Service API](https://apis.io/apis/pinata/pinning-service-api/) — Implementation of the IPFS Pinning Service API standard for compatibility with go-ipfs / kubo and js-ipfs clients.
+- [Pinata Dedicated Gateway](https://apis.io/apis/pinata/gateway-api/) — Dedicated IPFS HTTP gateway endpoint per account for content retrieval with custom subdomain, access controls, and analytics.
+- [Pinata Groups API](https://apis.io/apis/pinata/groups-api/) — REST API for organizing CIDs into named Groups with bulk add/remove operations.
+- [Pinata Auth API](https://apis.io/apis/pinata/pinata-auth-api/) — Test API credentials.
+- [Pinata Files API](https://apis.io/apis/pinata/pinata-files-api/) — Upload, list, and manage pinned files.
 
-## APIs
+### Published properties
 
-### Pinata Files API
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-REST API for uploading, listing, organizing, and deleting files pinned to IPFS or stored privately. Supports public and private (Submarine) modes, signed URLs, and Groups.
+#### MCP servers (1)
 
-- **Human URL:** [https://docs.pinata.cloud/api-reference/endpoint/upload-a-file](https://docs.pinata.cloud/api-reference/endpoint/upload-a-file)
-- **Base URL:** `https://api.pinata.cloud/v3`
+Model Context Protocol servers that expose the API to agents.
 
-#### Tags
+- [Moved to /providers/pinata/](https://apis.io/servers/pinata/pinata/)
 
-- REST
-- IPFS
-- Files
+#### Agentic access (1)
 
-#### Properties
+Which operations an agent can call, which act, and which need a human in the loop.
 
-- [Documentation](https://docs.pinata.cloud/api-reference)
-- [Postman Collection](collections/pinata.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/pinata.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Pinata Agentic Access](https://apis.io/agentic-access/pinata/pinata-agentic-access/)
 
-### Pinata IPFS Pinning Service API
+#### Collections (3)
 
-Implementation of the IPFS Pinning Service API standard for compatibility with go-ipfs / kubo and js-ipfs clients.
+Postman and Open Collection request collections.
 
-- **Human URL:** [https://docs.pinata.cloud/api-reference/endpoint/ipfs-pinning-service-api](https://docs.pinata.cloud/api-reference/endpoint/ipfs-pinning-service-api)
-- **Base URL:** `https://api.pinata.cloud/psa`
+- [Pinata API](https://apis.io/collections/pinata/open-pinata/)
+- [Pinata Auth API](https://apis.io/collections/pinata/open-pinata-auth-api/)
+- [Pinata Auth Files API](https://apis.io/collections/pinata/open-pinata-files-api/)
 
-#### Tags
+#### Security (2)
 
-- REST
-- IPFS
-- Pinning Service
+Authentication, trust centre, and vulnerability disclosure.
 
-#### Properties
+- [Pinata Authentication](https://apis.io/security/pinata/pinata-authentication/)
+- [Pinata Domain Security](https://apis.io/security/pinata/pinata-domain-security/)
 
-- [Documentation](https://docs.pinata.cloud/api-reference/endpoint/ipfs-pinning-service-api)
-- [Postman Collection](collections/pinata.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/pinata.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+#### Plans and pricing (1)
 
-### Pinata Dedicated Gateway
+Published plans, tiers and prices.
 
-Dedicated IPFS HTTP gateway endpoint per account for content retrieval with custom subdomain, access controls, and analytics.
+- [Pinata Plans Pricing](https://apis.io/plans/pinata/pinata-plans-pricing/)
 
-- **Human URL:** [https://docs.pinata.cloud/gateways/dedicated-ipfs-gateways](https://docs.pinata.cloud/gateways/dedicated-ipfs-gateways)
-- **Base URL:** `https://{your-gateway}.mypinata.cloud`
+#### Rate limits (1)
 
-#### Tags
+Published request limits.
 
-- HTTP
-- Gateway
+- [Pinata Rate Limits](https://apis.io/rate-limits/pinata/pinata-rate-limits/)
 
-#### Properties
+#### FinOps (1)
 
-- [Documentation](https://docs.pinata.cloud/gateways/dedicated-ipfs-gateways)
-- [Postman Collection](collections/pinata.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/pinata.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+What the API costs to run, by operation.
 
-### Pinata Groups API
+- [Pinata Finops](https://apis.io/finops/pinata/pinata-finops/)
 
-REST API for organizing CIDs into named Groups with bulk add/remove operations.
+## Where to find this API
 
-- **Human URL:** [https://docs.pinata.cloud/api-reference/endpoint/v3-create-a-public-group](https://docs.pinata.cloud/api-reference/endpoint/v3-create-a-public-group)
-- **Base URL:** `https://api.pinata.cloud/v3`
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-#### Tags
-
-- REST
-- Groups
-
-#### Properties
-
-- [Documentation](https://docs.pinata.cloud/api-reference/endpoint/v3-create-a-public-group)
-- [Postman Collection](collections/pinata.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/pinata.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-## Common Properties
-
-- [GitHub Organization](https://github.com/PinataCloud)
-- [LinkedIn](https://www.linkedin.com/company/pinatacloud)
 - [Website](https://pinata.cloud/)
-- [Plans](plans/pinata-plans-pricing.yml)
-- [Rate Limits](rate-limits/pinata-rate-limits.yml)
-- [Fin Ops](finops/pinata-finops.yml)
-- [L L Ms Txt](https://docs.pinata.cloud/llms.txt)
+- [Blog](https://pinata.cloud/blog/rss/)
+- [GitHub](https://github.com/PinataCloud)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 25.5** — emerging · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.7 |
+| Contract quality | 50.8 |
+| Contract governance | 0.0 |
+| Operational transparency | 7.9 |
+| Developer ergonomics | 23.8 |
+| Access clarity | 7.9 |
+
+**Agent readiness 33.0** — agent-ready
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | verified |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | verified |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 11.8** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/pinata/](https://apis.io/providers/pinata/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Pinata: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/pinata/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
